@@ -5,13 +5,13 @@
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleExecutable</key>
-    <string>$(EXECUTABLE_NAME)</string>
+    <string>MyIOSApp</string>
     <key>CFBundleIdentifier</key>
-    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <string>in.scssoftware.adminapp</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
-    <string>$(PRODUCT_NAME)</string>
+    <string>MyIOSApp</string>
     <key>CFBundleDisplayName</key>
     <string>SCS Admin</string>
     <key>CFBundlePackageType</key>
@@ -41,15 +41,13 @@
     <key>NSFaceIDUsageDescription</key>
     <string>We use Face ID to secure your access to the Admin Dashboard.</string>
 
-    <!-- Needed because WKWebView's native <input type="file"> picker
-         can present the camera / photo library for uploads. -->
+    <!-- Camera / Photos -->
     <key>NSCameraUsageDescription</key>
     <string>Camera access is used to capture and upload photos from the Admin Dashboard.</string>
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Photo library access is used to select and upload images from the Admin Dashboard.</string>
 
-    <!-- App Transport Security: only the dashboard's own domain is scoped,
-         standard HTTPS/TLS is otherwise required everywhere else. -->
+    <!-- App Transport Security -->
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSExceptionDomains</key>
@@ -64,42 +62,6 @@
                 <string>TLSv1.2</string>
                 <key>NSExceptionRequiresForwardSecrecy</key>
                 <true/>
-            </dict>
-        </dict>
-    </dict>
-
-    <!-- Legitimate alternate app-icon themes (cosmetic only — none of these
-         re-brand the app as a different, unrelated application). -->
-    <key>CFBundleIcons</key>
-    <dict>
-        <key>CFBundlePrimaryIcon</key>
-        <dict>
-            <key>CFBundleIconFiles</key>
-            <array>
-                <string>AppIcon60x60</string>
-            </array>
-            <key>UIPrerenderedIcon</key>
-            <false/>
-        </dict>
-        <key>CFBundleAlternateIcons</key>
-        <dict>
-            <key>AppIcon-Midnight</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>AppIcon-Midnight60x60</string>
-                </array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
-            </dict>
-            <key>AppIcon-Ocean</key>
-            <dict>
-                <key>CFBundleIconFiles</key>
-                <array>
-                    <string>AppIcon-Ocean60x60</string>
-                </array>
-                <key>UIPrerenderedIcon</key>
-                <false/>
             </dict>
         </dict>
     </dict>
