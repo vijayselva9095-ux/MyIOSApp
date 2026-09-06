@@ -1,0 +1,36 @@
+name: Build Unsigned iOS IPA
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Assemble App Bundle
+      run: |
+        mkdir -p MyIOSApp.app
+        cp Info.plist MyIOSApp.app/
+        xcrun -sdk iphoneos swiftc App.swift ContentView.swift \
+          -target arm64-apple-ios16.0 \
+          -framework SwiftUI \
+          -framework UIKit \
+          -o MyIOSApp.app/MyIOSApp
+
+    - name: Package into IPA
+      run: |
+        mkdir -p Payload
+        cp -r MyIOSApp.app Payload/
+        zip -r MyIOSApp.ipa Payload
+
+    - name: Upload IPA Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: MyIOSApp-IPA
+        path: MyIOSApp.ipa
